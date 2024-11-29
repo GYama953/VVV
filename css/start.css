@@ -38,7 +38,7 @@ nav ul {
     margin: 0;
     display: flex;
     justify-content: center;
-    gap: 20px; /* Отступ между ссылками */
+    gap: 15px; /* Отступ между ссылками */
 }
 
 nav ul li {
@@ -47,7 +47,8 @@ nav ul li {
 
 nav ul li a {
     display: block;
-    padding: 10px 20px;
+    padding: 8px 18px;
+    font-size: 14px;
     text-decoration: none;
     color: white;
     font-weight: bold;
@@ -85,23 +86,26 @@ nav ul li a:hover {
 
 .grid-container {
     display: grid;
-    width: 45%;
+    width: 90%;
     margin: 0 auto;
-    grid-template-columns: repeat(3, 1fr); /* 3 столбца */
+    grid-template-columns: repeat(3, 100px); /* 3 столбца, каждая клетка 100px */
     gap: 20px;
     margin-top: 20px;
     margin-bottom: 20px;
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center; /* Центрирование по вертикали */
+    text-align: center; /* Центрирование текста */
 }
 
 .grid-item {
     background-color: #4CAF50;
     color: white;
-    padding: 20px;
+    width: 100px; /* Фиксированная ширина */
+    height: 100px; /* Фиксированная высота */
     text-align: center;
     cursor: pointer;
     border-radius: 8px;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    min-height: 50px;
     position: relative;
     display: flex;
     justify-content: center;
@@ -150,6 +154,7 @@ nav ul li a:hover {
     font-size: 0.9rem; /* Размер текста для номера категории */
     margin: 0;
 }
+
 
 
 
