@@ -70,7 +70,7 @@ nav ul li a:hover {
     cursor: pointer;
     border-radius: 8px;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    min-height: 150px;
+    min-height: 50px;
     position: relative;
     display: flex;
     justify-content: center;
