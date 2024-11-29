@@ -58,11 +58,11 @@ nav ul li a {
 
 /* Разные цвета для каждого раздела */
 .nav-item.food {
-    background-color: #4caf50; /* Цвет для "Еда" */
+    background-color: #ff7043; /* Цвет для "Еда" */
 }
 
 .nav-item.sport {
-    background-color: #ff7043; /* Цвет для "Спорт" */
+    background-color: #4caf50; /* Цвет для "Спорт" */
 }
 
 .nav-item.clothing {
