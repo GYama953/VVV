@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    background: linear-gradient(to bottom right, #f0a8b5, #d1a7f7);
+        background: linear-gradient(to top, #CC2B52, #740938);
 }
 
 .container1 {
@@ -13,17 +13,19 @@ body {
 }
 
 .container2 {
-    width: 90%;
+  
     max-width: 1200px;
     height: 300px;
     margin: 0 auto;
+  
 }
 
 header {
-    background: #007BFF;
+    background: #740938;
     color: #fff;
     padding: 1rem 0;
     text-align: center;
+    border-bottom: 3px solid #E03C66; /* Линия снизу другого цвета */
 }
 
 nav ul {
@@ -48,19 +50,21 @@ nav ul li a {
 
 .hero h2 {
     margin-bottom: 1rem;
+    color: #ffffff;
 }
 
 .button {
     display: inline-block;
     padding: 0.5rem 1rem;
-    background: #007BFF;
+    background: #E03C66     ;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
 }
 
 footer {
-    background: #333;
+    background: #DE7C7D;
     color: #fff;
     text-align: center;
     padding: 1rem
+}
