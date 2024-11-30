@@ -31,6 +31,13 @@ header h1 {
     margin-bottom: 10px;
 }
 
+header h1 a{
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #fff;
+    text-decoration: none; /* Убираем подчеркивание ссылки */
+}
+
 /* Основной стиль для навигации */
 nav ul {
     list-style: none;
