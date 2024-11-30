@@ -10,6 +10,7 @@ body {
     padding: 0;
     line-height: 1.6;
     color: #99999;
+    background: linear-gradient(to top, #FFBF61, #FFD09B );
 }
 
 .container1 {
@@ -19,15 +20,21 @@ body {
 }
 
 header {
-    background: #007BFF;
-    color: #fff;
+    background: #FC8F54;
     padding: 1rem 0;
     text-align: center;
+    border-bottom: 3px solid #FFBF61 ; /* Линия снизу другого цвета */
 }
 
 header h1 {
     font-size: 2rem;
     margin-bottom: 10px;
+}
+header h1 a{
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #fff;
+    text-decoration: none; /* Убираем подчеркивание ссылки */
 }
 
 /* Основной стиль для навигации */
@@ -58,7 +65,7 @@ nav ul li a {
 
 /* Разные цвета для каждого раздела */
 .nav-item.food {
-    background-color: #ff7043; /* Цвет для "Еда" */
+    background-color: #fa7147; /* Цвет для "Еда" */
 }
 
 .nav-item.sport {
@@ -97,7 +104,7 @@ nav ul li a:hover {
 }
 
 .grid-item {
-    background-color: #4CAF50;
+    background-color: #FC8F54           ;
     color: white;
     width: 100px; /* Фиксированная ширина */
     height: 100px; /* Фиксированная высота */
@@ -114,7 +121,7 @@ nav ul li a:hover {
 }
 
 .grid-item:hover {
-    background-color: #45a049;
+    background-color: #ff8e52  ;
     transform: scale(1.05); /* Легкое увеличение при наведении */
 }
 
