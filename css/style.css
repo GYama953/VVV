@@ -1,9 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
-        background: linear-gradient(to top, #CC2B52, #740938);
+    background: #F5F5F7;
 }
 
 .container1 {
@@ -12,58 +18,170 @@ body {
     margin: 0 auto;
 }
 
-.container2 {
-  
-    max-width: 1200px;
-    height: 300px;
-    margin: 0 auto;
-  
-}
-
 header {
-    background: #740938;
+    background: #007BFF;
     color: #fff;
     padding: 1rem 0;
     text-align: center;
-    border-bottom: 3px solid #E03C66; /* Линия снизу другого цвета */
 }
 
+header h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+header h1 a{
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #fff;
+    text-decoration: none; /* Убираем подчеркивание ссылки */
+}
+
+/* Основной стиль для навигации */
 nav ul {
     list-style: none;
     padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Отступ между ссылками */
 }
 
 nav ul li {
     display: inline;
-    margin: 0 10px;
 }
 
 nav ul li a {
-    color: #fff;
+    display: block;
+    padding: 8px 18px;
+    font-size: 14px;
     text-decoration: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-align: center;
 }
 
+/* Разные цвета для каждого раздела */
+.nav-item.food {
+    background-color: #ff7043; /* Цвет для "Еда" */
+}
+
+.nav-item.sport {
+    background-color: #4caf50; /* Цвет для "Спорт" */
+}
+
+.nav-item.clothing {
+    background-color: #2196f3; /* Цвет для "Одежда" */
+}
+
+.nav-item.home {
+    background-color: #9c27b0; /* Цвет для "Дом" */
+}
+
+/* Эффект наведения */
+nav ul li a:hover {
+    transform: scale(1.1); /* Увеличение при наведении */
+    opacity: 0.8; /* Легкое затемнение */
+}
+
+.container2 {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Элементы будут располагаться друг под другом */
+    gap: 20px; /* Отступ между элементами */
+    align-items: center; /* Центрируем элементы по горизонтали */
+}
+
+/* Стиль для hero */
 .hero {
+    background-color: #0a9ac2;
+    color: #ffffff;
+    border-radius: 10px;
     text-align: center;
-    padding: 2rem 0;
+    padding: 40px 20px; /* Увеличенные отступы для удобного размещения контента */
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: filter 0.3s ease, transform 0.3s ease; /* Плавный переход для фильтра и подъема */
+    width: 29%; /* Ограничиваем максимальную ширину, чтобы карточка была удобного размера */
+    margin: 20px auto; /* Центрируем блок по горизонтали */
 }
 
 .hero h2 {
     margin-bottom: 1rem;
     color: #ffffff;
+    font-size: 1.8rem; /* Немного увеличиваем размер текста для лучшей видимости */
 }
 
-.button {
+.hero .button {
     display: inline-block;
-    padding: 0.5rem 1rem;
-    background: #E03C66     ;
-    color: #fff;
+    padding: 0.5rem 1.5rem;
+    background: #39c689;
+    color: #ffffff;
     text-decoration: none;
     border-radius: 5px;
+    margin-top: 15px;
+    transition: background 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: filter 0.3s ease, transform 0.3s ease;
 }
 
+.hero .button:hover {
+    filter: brightness(0.95); /* Уменьшаем яркость до 85% при наведении */
+    transform: translateY(-2px); /* Меняем цвет кнопки при наведении */
+}
+
+.cards-container {
+    display: flex;
+    flex-direction: row; /* Карточки будут располагаться в одну строку */
+    flex-wrap: wrap; /* Если карточки не помещаются, они будут переноситься на следующую строку */
+    gap: 20px; /* Отступы между карточками */
+    width: 100%;
+    justify-content: center; /* Центрируем карточки по горизонтали */
+    align-items: center; /* Центрируем карточки по вертикали */
+}
+
+.card {
+    background-color: #0a9ac2;
+    color: #ffffff;
+    border-radius: 10px;
+    text-align: center;
+    width: 8.6%; /* Возвращаем ширину карточки к предыдущему значению */
+    height: 0;
+    padding-top: 8.3%; /* Высота карточки равна ширине для создания квадрата */
+    position: relative; /* Необходим для правильного размещения контента */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Чтобы контент не выходил за границы */
+    transition: filter 0.3s ease, transform 0.3s ease; /* Плавный переход для фильтра и подъема */
+}
+
+.card:hover {
+    filter: brightness(0.95); /* Уменьшаем яркость до 85% при наведении */
+    transform: translateY(-2px); /* Поднимаем карточку вверх на 10px при наведении */
+}
+
+.card p {
+    position: absolute; /* Абсолютное позиционирование для центрирования текста */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Центрируем текст по горизонтали и вертикали */
+    margin: 0;
+    width: 90%;
+    padding: 5px; /* Отступы текста */
+    font-size: 0.75rem; /* Размер текста */
+    line-height: 1.2;
+    font-weight: bold;
+}
+
+
+
+
 footer {
-    background: #333;
+    background: #536493;
     color: #fff;
     text-align: center;
     padding: 1rem
