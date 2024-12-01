@@ -27,7 +27,14 @@ header {
 
 header h1 {
     font-size: 2rem;
-    margin-bottom: 10px; /* Отступ от заголовка до навигации */
+    margin-bottom: 10px;
+}
+
+header h1 a{
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #fff;
+    text-decoration: none; /* Убираем подчеркивание ссылки */
 }
 
 /* Основной стиль для навигации */
@@ -84,38 +91,70 @@ nav ul li a:hover {
 
 
 .grid-container {
-    display: grid;
-    width: 90%;
+    display: flex;
+    flex-direction: column; /* Располагаем клетки в одну колонку сверху вниз */
+    width: 50%;
     margin: 0 auto;
-    grid-template-columns: repeat(3, 100px); /* 3 столбца, каждая клетка 100px */
-    gap: 20px;
+    gap: 20px; /* Отступы между клетками */
     margin-top: 20px;
     margin-bottom: 20px;
-    justify-content: center; /* Центрирование по горизонтали */
-    align-items: center; /* Центрирование по вертикали */
+    align-items: center; /* Центрируем клетки по горизонтали */
     text-align: center; /* Центрирование текста */
 }
 
+/* Уникальные стили для каждой клетки */
+.grid-item:nth-child(1) {
+    background-color: #9b9ea2; /* Цвет для Common */
+}
+
+.grid-item:nth-child(2) {
+    background-color: #53c655; /* Цвет для Uncommon */
+}
+
+.grid-item:nth-child(3) {
+    background-color: #039cd8; /* Цвет для Rare */
+}
+
+.grid-item:nth-child(4) {
+    background-color: #bf54d4; /* Цвет для Epic */
+}
+
+.grid-item:nth-child(5) {
+    background-color: #ebd546; /* Цвет для Legendary */
+}
+
 .grid-item {
-    background-color: #4CAF50;
     color: white;
-    width: 100px; /* Фиксированная ширина */
-    height: 100px; /* Фиксированная высота */
+    width: 180px; /* Увеличенная ширина */
+    height: 180px; /* Увеличенная высота */
     text-align: center;
     cursor: pointer;
-    border-radius: 8px;
+    border-radius: 14px; /* Немного увеличили закругление углов */
     transition: background-color 0.3s ease, transform 0.3s ease;
     position: relative;
     display: flex;
+    flex-direction: column; /* Размещаем элементы внутри клетки в колонку */
     justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     overflow: hidden; /* чтобы содержимое не выходило за пределы клетки */
+    font-size: 1.5rem; /* Увеличенный размер текста для клеток */
+    line-height: 1.4;
 }
 
 .grid-item:hover {
-    background-color: #45a049;
     transform: scale(1.05); /* Легкое увеличение при наведении */
+}
+
+/* Общие стили для заголовка и описания */
+.grid-item h2 {
+    font-size: 1.45rem; /* Размер текста для заголовка */
+    text-transform: uppercase; /* Преобразуем текст в верхний регистр */
+    margin-bottom: 10px;
+}
+
+.grid-item p {
+    font-size: 1.1rem; /* Размер текста для описания */
 }
 
 /* Размер .content теперь полностью соответствует размеру .grid-item */
@@ -123,48 +162,59 @@ nav ul li a:hover {
     display: none;
     background-color: #fff;
     color: #333;
-    padding: 10px;
+    padding: 10px; /* Уменьшаем padding для более компактного вида */
     border: 1px solid #ddd;
     border-radius: 5px;
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
     box-sizing: border-box;
-    font-size: 1.5rem; /* Увеличим размер шрифта */
+    font-size: 1rem; /* Уменьшаем размер шрифта для контента */
     text-align: center;
     line-height: 1.4;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    overflow: hidden; /* чтобы текст не выходил за пределы клетки */
+    overflow: hidden; /* чтобы текст не выходило за пределы клетки */
+}
+
+.grid-item:nth-child(1) .content{
+    background-color: #eeeef1; /* Цвет для Rare */
+}
+
+.grid-item:nth-child(2) .content{
+    background-color: #d9f2d9; /* Цвет для Rare */
+}
+
+.grid-item:nth-child(3) .content{
+    background-color: #d7f3fe; /* Цвет для Rare */
+}
+
+.grid-item:nth-child(4) .content{
+    background-color: #f3def7; /* Цвет для Rare */
+}
+
+.grid-item:nth-child(5) .content{
+    background-color: #fbf7da; /* Цвет для Rare */
 }
 
 /* Стили для текста внутри content */
 .grid-item .content h2 {
-    font-size: 1rem; /* Размер заголовка для категории */
-    margin-bottom: 10px;
+    font-size: 1.3rem; /* Уменьшенный размер заголовка */
+    margin-bottom: 5px; /* Уменьшаем отступ для компактного расположения */
     text-transform: uppercase; /* Преобразуем в верхний регистр */
 }
 
 .grid-item .content p {
-    font-size: 0.9rem; /* Размер текста для номера категории */
+    font-size: 0.9rem; /* Уменьшенный размер текста для номера категории */
     margin: 0;
 }
 
 
 
-
-h2 {
-    margin-bottom: 10px;
-    font-size: 1.5rem;
-}
-
-p {
-    font-size: 1rem;
-}
 
 footer {
     background: #333;
@@ -172,3 +222,4 @@ footer {
     text-align: center;
     padding: 1rem
 }
+
