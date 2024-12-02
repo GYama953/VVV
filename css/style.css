@@ -107,14 +107,15 @@ nav ul li a:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: filter 0.3s ease, transform 0.3s ease; /* Плавный переход для фильтра и подъема */
-    width: 343px; /* Ограничиваем максимальную ширину, чтобы карточка была удобного размера */
+    width: 100%; /* Меняем ширину для планшета */
+    max-width: 500px; /* Ограничиваем максимальную ширину для удобного отображения на планшете */
     margin: 20px auto; /* Центрируем блок по горизонтали */
 }
 
 .hero h2 {
     margin-bottom: 1rem;
     color: #ffffff;
-    font-size: 1.8rem; /* Немного увеличиваем размер текста для лучшей видимости */
+    font-size: 1.5rem; /* Уменьшаем размер текста для удобного отображения на планшете */
 }
 
 .hero .button {
@@ -140,8 +141,9 @@ nav ul li a:hover {
     flex-direction: row; /* Карточки будут располагаться в одну строку */
     flex-wrap: wrap; /* Если карточки не помещаются, они будут переноситься на следующую строку */
     gap: 10px; /* Отступы между карточками, чтобы общая ширина подходила */
-    width: 343px; /* Ширина контейнера карточек равна ширине hero */
-    justify-content: space-between; /* Размещаем карточки с равными промежутками */
+    width: 100%; /* Меняем ширину для планшета */
+    max-width: 500px; /* Ширина контейнера карточек равна ширине hero */
+    justify-content: center; /* Центрируем карточки */
     align-items: center; /* Центрируем карточки по вертикали */
     margin: 20px auto; /* Центрируем контейнер карточек по горизонтали */
 }
@@ -151,9 +153,9 @@ nav ul li a:hover {
     color: #ffffff;
     border-radius: 10px;
     text-align: center;
-    width: calc((343px - 20px) / 3); /* Рассчитываем ширину каждой карточки с учетом отступов */
+    width: calc((500px - 40px) / 3); /* Рассчитываем ширину каждой карточки с учетом отступов */
     height: 0;
-    padding-top: calc((343px - 20px) / 3); /* Высота карточки равна ширине для создания квадрата */
+    padding-top: calc((500px - 40px) / 3); /* Высота карточки равна ширине для создания квадрата */
     position: relative; /* Необходим для правильного размещения контента */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden; /* Чтобы контент не выходил за границы */
@@ -178,13 +180,84 @@ nav ul li a:hover {
     font-weight: bold;
 }
 
-
-
-
-
 footer {
     background: #536493;
     color: #fff;
     text-align: center;
     padding: 1rem
+}
+
+@media (max-width: 768px) {
+    /* Адаптация для планшетов */
+    .container1, .container2 {
+        width: 100%;
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    nav ul li a {
+        font-size: 13px;
+        padding: 6px 12px;
+    }
+
+    .hero {
+        padding: 30px 15px;
+    }
+
+    .cards-container {
+        gap: 5px;
+    }
+
+    .card {
+        width: calc((100% - 30px) / 3);
+        padding-top: calc((100% - 30px) / 3);
+    }
+}
+
+@media (max-width: 480px) {
+    /* Адаптация для телефонов */
+    .container1, .container2 {
+        width: 100%;
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 1.6rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav ul li a {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+
+    .hero {
+        padding: 20px 10px;
+        max-width: 100%;
+    }
+
+    .hero h2 {
+        font-size: 1.3rem;
+    }
+
+    .cards-container {
+        gap: 5px;
+        flex-direction: column;
+    }
+
+    .card {
+        width: 100%;
+        padding-top: 100%;
+    }
+
+    .card p {
+        font-size: 0.7rem;
+    }
 }
