@@ -1,0 +1,360 @@
+/* Общие стили */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #1e1b3a; /* Темно-фиолетовый */
+    color: #e9ecef; /* Светлый текст */
+}
+
+/* Контейнер */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+/* Header */
+.main-header {
+    background: linear-gradient(90deg, #5a3ea5, #352c78); /* Градиент */
+    color: white;
+    padding: 20px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Логотип */
+.logo h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Баланс */
+.balance {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 1.2rem;
+}
+
+.balance strong {
+    font-size: 1.5rem;
+    color: #20c997; /* Бирюзовый акцент */
+}
+
+/* Навигационное меню */
+.nav-menu {
+    display: none; /* Скрыто по умолчанию */
+    flex-direction: column;
+    background-color: #352c78;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 10px;
+    z-index: 9999;
+    transition: all 0.3s ease;
+}
+
+/* Показываем меню при наличии класса active */
+.nav-menu.active {
+    display: flex;
+}
+
+/* Ссылки в меню */
+.nav-menu a {
+    text-decoration: none;
+    color: #e9ecef; /* Светло-серый текст */
+    font-size: 1.2rem;
+    margin: 10px 0;
+    transition: color 0.3s, transform 0.2s; /* Плавное изменение цвета */
+}
+
+/* Эффект при наведении */
+.nav-menu a:hover {
+    color: #20c997; /* Бирюзовый акцент */
+    transform: scale(1.1); /* Лёгкое увеличение */
+}
+
+/* Гамбургер-меню */
+.hamburger-menu {
+    display: flex; /* Показываем по умолчанию */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+}
+
+/* Линии гамбургер-меню */
+.hamburger-menu .line {
+    width: 100%;
+    height: 4px;
+    background-color: white;
+}
+
+/* Баланс */
+.balance {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 1.2rem;
+}
+
+/* Игровое поле */
+.game-screen {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Информация об игре */
+.game-info {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+/* Кнопка "Пополнить" */
+.recharge-button {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #20c997; /* Бирюзовый */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.recharge-button:hover {
+    background-color: #17a589; /* Темнее при наведении */
+}
+
+/* Сетка клеток */
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 колонки */
+    gap: 10px;
+    max-width: 400px; /* Максимальная ширина сетки */
+    margin: 0 auto;
+}
+
+.game-cell {
+    width: 100%;
+    padding-top: 100%; /* Квадратная клетка */
+    position: relative;
+    background-color: #5a3ea5; /* Фиолетовый */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.game-cell:hover {
+    transform: scale(1.05);
+}
+
+.game-cell.open {
+    background-color: #20c997; /* Бирюзовый для открытых клеток */
+    cursor: default;
+}
+
+.game-cell .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 1.2rem;
+    display: none; /* Скрыто до открытия */
+}
+
+.game-cell.open .content {
+    display: block;
+}
+
+/* Модальное окно */
+.result-modal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent; /* Убираем темный фон */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0; /* Сделаем окно полностью прозрачным в начале */
+    animation: fadeIn 0.5s ease forwards; /* Анимация появления */
+}
+
+/* Анимация для появления */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8); /* Начнем с уменьшенного размера */
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1); /* Финальный размер */
+    }
+}
+
+.modal-content {
+    background-color: #352c78; /* Глубокий пурпурный */
+    color: #e9ecef;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #20c997; /* Бирюзовый */
+}
+
+.modal-content p {
+    margin: 15px 0;
+    font-size: 1.2rem;
+}
+
+.close-button {
+    background-color: #20c997; /* Бирюзовый */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.close-button:hover {
+    background-color: #17a589;
+}
+
+
+
+/* Переключатель "Показать результат" */
+.result-toggle {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.result-toggle label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    color: #e9ecef;
+}
+
+.result-toggle input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/* Футер */
+.footer {
+    background-color: #352c78; /* Глубокий пурпурный */
+    color: #e9ecef;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 50px;
+}
+
+/* Контейнер футера (ширина должна совпадать с шириной сетки клеток) */
+.footer .container {
+    max-width: 500px; /* Та же ширина, что и игровое поле */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Секция истории */
+.history {
+    margin-top: 20px;
+    background-color: rgba(0, 0, 0, 0.2); /* Мягкий полупрозрачный фон */
+    border-radius: 10px; /* Закругленные углы */
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Тень вокруг */
+    width: 100%; /* Обеспечиваем выравнивание по ширине контейнера */
+    box-sizing: border-box; /* Для учета паддингов в ширине */
+}
+
+/* Заголовок истории */
+.history h3 {
+    font-size: 1.5rem;
+    color: #20c997; /* Бирюзовый */
+    margin-bottom: 15px;
+}
+
+/* Стили для прокрутки истории */
+#history-list {
+    list-style-type: none;
+    padding: 0 10px;
+    max-height: 200px; /* Ограничение высоты */
+    overflow-y: auto; /* Прокрутка по вертикали */
+    scrollbar-width: thin; /* Для Firefox */
+    scrollbar-color: #20c997 #352c78; /* Цвет ползунка и фона */
+}
+
+/* Для Chrome, Edge, Safari */
+#history-list::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+#history-list::-webkit-scrollbar-thumb {
+    background-color: #20c997; /* Цвет ползунка */
+}
+
+#history-list::-webkit-scrollbar-track {
+    background-color: #352c78; /* Цвет фона полосы прокрутки */
+}
+
+
+/* Элемент списка */
+#history-list li {
+    background-color: #5a3ea5; /* Фиолетовый */
+    color: #e9ecef;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s;
+}
+
+/* Эффект при наведении */
+#history-list li:hover {
+    background-color: #20c997; /* Бирюзовый */
+    color: #352c78;
+}
+
+
+
+/* Для больших экранов */
+@media (min-width: 768px) {
+    .hamburger-menu {
+        display: none; /* Убираем гамбургер */
+    }
+
+    .nav-menu {
+        display: flex; /* Показываем основное меню */
+        flex-direction: row;
+        position: static; /* Сбрасываем позиционирование */
+        background: none;
+        padding: 0;
+        gap: 30px;
+    }
+}
