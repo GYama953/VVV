@@ -3,54 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Акции, купоны, скидки">
-    <meta name="author" content="DealHunter">
-    <title>DealHunter</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Игровое поле</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!-- Шапка -->
-    <header>
-    <div class="container1">
-        <h1><a href="index.html">DealHunter</a></h1>
-        <nav>
-            <ul>
-                <li><a href="food.html" class="nav-item food">Еда</a></li>
-                <li><a href="sport.html" class="nav-item sport">Спорт</a></li>
-                <li><a href="clothing.html" class="nav-item clothing">Одежда</a></li>
-                <li><a href="home.html" class="nav-item home">Дом</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
-
-    <!-- Главный контент -->
-    <main>
-    <div class="container2">
-        <div class="hero">
-            <h2>DealHunter<p>приветствует!</h2>
-            <a href="start.html" class="button">Начать</a>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <h1>Скидочная Игра</h1>
+            </div>
+            <div class="balance">
+                <span>Баланс:</span>
+                <strong id="balance">100</strong>
+                <span>монет</span>
+            </div>
+            <div class="hamburger-menu" id="hamburger-menu">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="#">Профиль</a>
+                <a href="#">История</a>
+                <a href="#">Правила</a>
+            </nav>
         </div>
-        <div class="cards-container">
-            <div class="card">
-                <p>Категории<br>в которых найдешь промокоды!</p>
-            </div>
-            <div class="card">
-                <p>Редкость промокода, уникальное предложение!</p>
-            </div>
-            <div class="card">
-                <p>Желаем удачи!</p>
-            </div>
+    </header>
+
+<main class="game-screen">
+    <div class="game-info">
+        <p>Стоимость открытия клетки: <strong id="cell-cost">10</strong> монет</p>
+        <a href="recharge.html" class="recharge-button">Пополнить</a>
+    </div>
+    <div class="game-grid" id="game-grid">
+        <!-- Клетки игрового поля будут динамически добавляться -->
+    </div>
+    <div class="result-toggle">
+        <label>
+            <input type="checkbox" id="show-result-toggle" checked>
+            Показать результат после открытия клетки
+        </label>
+    </div>
+    <div class="result-modal" id="result-modal">
+        <div class="modal-content">
+            <h2>Поздравляем!</h2>
+            <p>Вы нашли 🎁 <strong id="prize-content">Промокод на скидку</strong></p>
+            <button class="close-button" onclick="closeModal()">Закрыть</button>
         </div>
     </div>
 </main>
 
-    <!-- Подвал -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Мой Сайт. Все права защищены.</p>
-            <p><a href="privacy.html">Политика конфиденциальности</a></p>
+<footer class="footer">
+    <div class="container">
+        <div class="history">
+            <h3>История выбитых промокодов</h3>
+            <ul id="history-list">
+                <!-- История будет добавляться сюда -->
+            </ul>
         </div>
-    </footer>
+    </div>
+</footer>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
