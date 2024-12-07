@@ -45,12 +45,14 @@
         </label>
     </div>
     <div class="result-modal" id="result-modal">
-        <div class="modal-content">
-            <h2>Поздравляем!</h2>
-            <p>Вы нашли 🎁 <strong id="prize-content">Промокод на скидку</strong></p>
-            <button class="close-button" onclick="closeModal()">Закрыть</button>
-        </div>
+    <div class="modal-content">
+        <div class="modal-icon">🎉</div> <!-- Иконка для украшения -->
+        <h2 class="modal-title">Поздравляем!</h2>
+        <p class="modal-text">Вы нашли 🎁 <strong id="prize-content">Промокод на скидку</strong></p>
+        <button class="close-button" onclick="closeModal()">Закрыть</button>
     </div>
+</div>
+
 </main>
 
 <footer class="footer">
@@ -63,6 +65,15 @@
         </div>
     </div>
 </footer>
+<!-- Модальное окно для уведомления -->
+    <div class="notification-modal" id="notification-modal">
+    <div class="notification-content">
+        <div class="notification-icon">⚠️</div> <!-- Иконка для украшения -->
+        <h2 class="notification-title">Недостаточно монет!</h2>
+        <p class="notification-text">Пополните баланс, чтобы продолжить игру.</p>
+        <button class="close-notification-button" onclick="closeNotification()">Закрыть</button>
+    </div>
+</div>
 
     <script src="js/script.js"></script>
 </body>
