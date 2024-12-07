@@ -89,7 +89,7 @@ function closeNotification() {
         // Скрываем окно после завершения анимации (0.5 секунды)
         setTimeout(() => {
             notificationModal.style.display = 'none';
-        }, 500);
+        }, 3000);
     }
 }
 
