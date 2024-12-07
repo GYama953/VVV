@@ -46,24 +46,54 @@ function openCell(cell) {
     const balance = parseInt(balanceElement.textContent);
     if (balance >= cellCost) {
         balanceElement.textContent = balance - cellCost; // Списать монеты
-        cell.classList.add('open'); // Открыть клетку
+        cell.classList.add('open'); // Добавляем анимацию открытия
 
-        // Добавляем результат в историю (один раз для каждой клетки)
+        // Добавляем результат в историю
         if (!cell.dataset.addedToHistory) {
             const prize = '🎁 Промокод на скидку!';
-            addToHistory(prize); // Добавляем результат в историю
-            cell.dataset.addedToHistory = true; // Помечаем клетку как занесенную в историю
+            addToHistory(prize);
+            cell.dataset.addedToHistory = true;
         }
 
         // Проверяем состояние переключателя и показываем модальное окно только при включенной галочке
         const showResultToggle = document.getElementById('show-result-toggle');
         if (showResultToggle && showResultToggle.checked) {
-            showModal('🎁 Промокод на скидку!'); // Показать модальное окно
+            showModal('🎁 Промокод на скидку!');
         }
     } else {
-        alert('Недостаточно монет!');
+        showNotification(); // Показать уведомление о нехватке монет
     }
 }
+
+
+
+// Функция для показа окна уведомления с автоматическим закрытием через 3 секунды
+function showNotification() {
+    const notificationModal = document.getElementById('notification-modal');
+    if (notificationModal) {
+        notificationModal.classList.remove('fade-out');
+        notificationModal.style.display = 'flex';
+
+        // Таймер для автоматического закрытия через 3 секунды (3000 миллисекунд)
+        setTimeout(() => {
+            closeNotification();
+        }, 3000);
+    }
+}
+
+// Функция для закрытия окна уведомления с плавной анимацией
+function closeNotification() {
+    const notificationModal = document.getElementById('notification-modal');
+    if (notificationModal) {
+        notificationModal.classList.add('fade-out');
+        // Скрываем окно после завершения анимации (0.5 секунды)
+        setTimeout(() => {
+            notificationModal.style.display = 'none';
+        }, 500);
+    }
+}
+
+
 
 // Функция добавления результата в историю
 function addToHistory(prize) {
