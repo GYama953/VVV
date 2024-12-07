@@ -129,12 +129,28 @@ body {
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s;
-    text-align: center;
 }
 
+/* Добавляем пульсирующий эффект при наведении */
 .recharge-button:hover {
     background-color: #17a589; /* Темнее при наведении */
+    animation: pulseButton 1.5s infinite;
 }
+
+/* Пульсирующая анимация */
+@keyframes pulseButton {
+    0% {
+        box-shadow: 0 0 0 0 rgba(32, 201, 151, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(32, 201, 151, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(32, 201, 151, 0);
+    }
+}
+
+
 
 /* Сетка клеток */
 .game-grid {
@@ -164,6 +180,7 @@ body {
     cursor: default;
 }
 
+
 .game-cell .content {
     position: absolute;
     top: 50%;
@@ -177,6 +194,35 @@ body {
 .game-cell.open .content {
     display: block;
 }
+
+/* Анимация переворота и увеличения клетки */
+@keyframes cellFlipScale {
+    0% {
+        transform: rotateX(0deg) scale(1);
+        background-color: #5a3ea5; /* Исходный фиолетовый цвет */
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        transform: rotateX(90deg) scale(1.1); /* Половинный переворот и увеличение */
+        background-color: #28d7a3; /* Яркий бирюзовый цвет */
+        box-shadow: 0 10px 25px rgba(32, 201, 151, 0.8); /* Усиленное свечение */
+    }
+    100% {
+        transform: rotateX(0deg) scale(1); /* Возвращение к исходному состоянию */
+        background-color: #20c997; /* Конечный бирюзовый цвет */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+}
+
+
+/* Применение анимации для открытой клетки */
+.game-cell.open {
+    animation: cellFlipScale 0.6s ease forwards;
+}
+
+
+
+
 
 /* Модальное окно */
 .result-modal {
@@ -206,14 +252,15 @@ body {
     }
 }
 
+/* Улучшение стиля модального окна */
 .modal-content {
-    background-color: #352c78; /* Глубокий пурпурный */
+    background: linear-gradient(135deg, #352c78, #5a3ea5); /* Градиентный фон */
     color: #e9ecef;
-    padding: 20px;
-    border-radius: 10px;
+    padding: 30px;
+    border-radius: 15px;
     text-align: center;
     max-width: 400px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
 
 .modal-content h2 {
@@ -227,6 +274,51 @@ body {
     font-size: 1.2rem;
 }
 
+/* Иконка для модального окна */
+.modal-icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    animation: bounceIcon 1s infinite;
+}
+
+/* Анимация для иконки (подпрыгивание) */
+@keyframes bounceIcon {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Анимация появления заголовка */
+.modal-title {
+    font-size: 1.8rem;
+    color: #20c997; /* Бирюзовый акцент */
+    margin: 10px 0;
+    animation: fadeInUp 0.7s ease forwards;
+}
+
+/* Анимация появления текста */
+.modal-text {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    animation: fadeInUp 1s ease forwards;
+}
+
+/* Анимация плавного появления вверх */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Плавное мигание кнопки закрытия */
 .close-button {
     background-color: #20c997; /* Бирюзовый */
     color: white;
@@ -236,10 +328,24 @@ body {
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s;
+    animation: pulseButton 1.5s infinite;
 }
 
 .close-button:hover {
-    background-color: #17a589;
+    background-color: #17a589; /* Темнее при наведении */
+}
+
+/* Анимация мигания кнопки */
+@keyframes pulseButton {
+    0% {
+        box-shadow: 0 0 0 0 rgba(32, 201, 151, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(32, 201, 151, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(32, 201, 151, 0);
+    }
 }
 
 
@@ -263,6 +369,155 @@ body {
     height: 20px;
     cursor: pointer;
 }
+
+
+/* Модальное окно для уведомления */
+.notification-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Содержимое модального окна */
+.notification-content {
+    background-color: #352c78; /* Глубокий пурпурный */
+    color: #e9ecef;
+    padding: 20px 30px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.0);
+    animation: fadeIn 0.5s ease forwards;
+}
+
+/* Класс для запуска анимации исчезновения */
+.notification-modal.fade-out {
+    animation: fadeOut 0.5s ease forwards;
+}
+
+/* Заголовок в модальном окне */
+.notification-content h2 {
+    margin: 0 0 10px;
+    font-size: 1.8rem;
+    color: #20c997; /* Бирюзовый акцент */
+}
+
+/* Текст уведомления */
+.notification-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+/* Иконка для уведомления */
+.notification-icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    animation: bounceNotificationIcon 1s infinite;
+}
+
+/* Анимация подпрыгивания иконки */
+@keyframes bounceNotificationIcon {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Заголовок уведомления */
+.notification-title {
+    font-size: 1.8rem;
+    color: #ff4d4f; /* Красный цвет для ошибки */
+    margin: 10px 0;
+    animation: fadeInUpNotification 0.7s ease forwards;
+}
+
+/* Текст уведомления */
+.notification-text {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    animation: fadeInUpNotification 1s ease forwards;
+}
+
+/* Градиентный фон для модального окна */
+.notification-content {
+    background: linear-gradient(135deg, #352c78, #5a3ea5);
+    color: #e9ecef;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 400px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Пульсирующая кнопка закрытия */
+.close-notification-button {
+    background-color: #ff4d4f; /* Красный цвет для ошибки */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    animation: pulseNotificationButton 1.5s infinite;
+}
+
+/* Эффект при наведении на кнопку */
+.close-notification-button:hover {
+    background-color: #d9363e;
+}
+
+/* Анимация пульсации кнопки */
+@keyframes pulseNotificationButton {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 77, 79, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 77, 79, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 77, 79, 0);
+    }
+}
+
+/* Анимация плавного появления вверх */
+@keyframes fadeInUpNotification {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Анимация исчезновения */
+@keyframes fadeOutNotification {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+}
+
+/* Добавляем класс для плавного закрытия */
+.notification-modal.fade-out {
+    animation: fadeOutNotification 0.5s ease forwards;
+}
+
+
 
 /* Футер */
 .footer {
